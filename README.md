@@ -35,3 +35,21 @@
 ```shell
 docker pull registry.aliyuncs.com/larryli/yii2-test
 ```
+
+## Docker Hub
+
+没有 http://mirrors.aliyun.com/ 和 https://pkg.phpcomposer.com/ 镜像
+
+```shell
+docker pull larryli/yii2-test
+```
+
+## Yii2 测试样例
+
+使用 GitLab CI 和 GitLab Runner Docker 运行
+
+GitLab: https://gitlab.com/larryli/yii2-app-basic-example
+
+## 源代码
+
+GitHub: https://github.com/larryli/docker-yii2-test
