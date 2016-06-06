@@ -60,5 +60,6 @@ RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 RUN composer global require --prefer-dist --no-progress "fxp/composer-asset-plugin:~1.1.1"
 RUN composer global require --prefer-dist --no-progress  "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*"
 RUN ln -s -f /root/.composer/vendor/bin/* /usr/local/bin/
+RUN rm -rf /root/.composer/cache
 
 CMD ["php", "-a"]
