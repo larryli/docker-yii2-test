@@ -6,8 +6,6 @@ FROM php:7.0.7
 MAINTAINER Larry Li larryli@qq.com
 
 RUN echo 'expose_php=off' >> /usr/local/etc/php/conf.d/off-expose.ini
-RUN sed -i 's/\/httpredir.debian.org/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
-    && sed -i 's/\/security.debian.org/\/mirrors.aliyun.com\/debian-security/g' /etc/apt/sources.list
 RUN set -xe \
 	&& buildDeps=" \
         libicu-dev \
@@ -63,7 +61,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && echo 'function composer() { COMPOSER="$(which composer.phar)" || { echo "Could not find composer in path" >&2 ; return 1 ; } && mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.dis ; $COMPOSER "$@" ; STATUS=$? ; mv /usr/local/etc/php/conf.dis/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d ; return $STATUS ; }' >> /usr/local/bin/composer \
     && echo 'composer $@' >> /usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer \
-    && composer config -g repo.packagist composer https://packagist.phpcomposer.com \
     && composer global require --prefer-dist --no-progress "fxp/composer-asset-plugin:~1.1.1" \
     && composer global require --prefer-dist --no-progress  "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*" \
     && ln -s -f /root/.composer/vendor/bin/* /usr/local/bin/ \

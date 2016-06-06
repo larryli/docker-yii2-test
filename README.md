@@ -1,37 +1,56 @@
 # docker-yii2-test
 
-基于 [docker php](https://hub.docker.com/_/php/) 构建完整的 [Yii2](https://github.com/yiisoft/yii2) 框架所需测试环境
+Build the full [Yii2](https://github.com/yiisoft/yii2) test environment base on [docker php](https://hub.docker.com/_/php/).
 
-## PHP 版本
+## PHP Version
 
-- 7.0、7、latest
-- 5.6、5
+- 7.0, 7, latest
+- 5.6, 5
 - 5.5
 
-## 安装软件
+## Software
 
 - Git
 - unzip
-- php intl 扩展
-- php pdo_mysql 扩展
-- php pdo_pgsql 扩展
-- php gd 扩展
-- php imagick 扩展
-- php memcached 扩展
-- php xdebug 扩展
+- php intl extension
+- php pdo_mysql extension
+- php pdo_pgsql extension
+- php gd extension
+- php imagick extension
+- php memcached extension
+- php xdebug extension
 - [Composer](https://getcomposer.org/)
-- [Composer NPM/Bower 插件](https://github.com/francoispluchino/composer-asset-plugin)
-- [Codeception](http://codeception.com/)（含 [PHPUnit](https://phpunit.de/)）
+- [Composer NPM/Bower Plugin](https://github.com/francoispluchino/composer-asset-plugin)
+- [Codeception](http://codeception.com/) (include [PHPUnit](https://phpunit.de/))
 
-## 额外处理
+## Extra
 
-- apt-get 使用 http://mirrors.aliyun.com/ 镜像
-- 关闭 expose_php
-- Composer [自动禁止 xdebug](https://getcomposer.org/xdebug)
-- Composer 使用 https://pkg.phpcomposer.com/ 镜像
+- Disable expose_php
+- [Xdebug impact on Composer](https://getcomposer.org/xdebug)
 
-## 使用
+## Use
+
+```shell
+docker pull aliyuncs.com/larryli/yii2-test
+```
+
+## Mirror on China
 
 ```shell
 docker pull registry.aliyuncs.com/larryli/yii2-test
 ```
+
+### Extra
+
+- apt mirror: 
+- composer mirror:
+
+## Yii2 Test Example
+
+Use GitLab CI and GitLab Runner with Docker
+
+GitLab: https://gitlab.com/larryli/yii2-app-basic-example
+
+## Source
+
+GitHub: https://github.com/larryli/docker-yii2-test
